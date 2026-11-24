@@ -1,0 +1,16 @@
+{
+  "name": "esst-football-website",
+  "version": "4.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/*.test.js",
+    "verify-db": "node scripts/verify-db.js"
+  },
+  "dependencies": {
+    "pg": "^8.13.0"
+  }
+}

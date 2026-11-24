@@ -1,0 +1,6 @@
+/* Icons inherit the surrounding text colour; icon-only buttons are at least 44x44. */
+.icon { display: inline-block; flex: none; vertical-align: middle; color: inherit; }
+.icon-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0; border: 0; border-radius: 12px; background: transparent; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.icon-btn:focus-visible { outline: 2px solid #9fd356; outline-offset: 2px; }
+.icon-btn:active { transform: scale(.94); }
+@media (prefers-reduced-motion: reduce) { .icon-btn:active { transform: none; } }

@@ -1,0 +1,52 @@
+/* ESST pages: auth, profile, player card. */
+.auth-card { max-width: 460px; margin: 2vh auto 0; display: flex; flex-direction: column; gap: 16px; }
+.auth-card form { display: flex; flex-direction: column; gap: 14px; }
+.birth-row { display: grid; grid-template-columns: 1fr 1.7fr 1.3fr; gap: 8px; }
+.form-error { color: var(--danger); background: var(--danger-soft); padding: 10px 12px; border-radius: 12px; font-size: .9rem; }
+.sep { height: 1px; background: var(--line); margin: 4px 0; }
+
+.player-hero { position: relative; overflow: hidden; border-radius: var(--radius-lg); border: 1px solid var(--line); padding: 20px 16px 18px;
+  background: radial-gradient(120% 120% at 50% -10%, rgba(159, 211, 86, .28), transparent 60%), linear-gradient(180deg, var(--surface-2), var(--bg-2)); display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+.player-photo { --s: 128px; box-shadow: 0 0 0 3px var(--accent), 0 14px 34px rgba(0, 0, 0, .5); }
+.player-name { font-size: clamp(1.4rem, 6vw, 2rem); font-weight: 850; letter-spacing: -.02em; line-height: 1.1; }
+.player-nick { color: var(--accent); font-weight: 700; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; width: 100%; margin-top: 6px; }
+.hero-actions .btn { flex: 1 1 120px; max-width: 200px; }
+.counts { display: flex; gap: 8px; width: 100%; max-width: 360px; }
+.count { flex: 1; min-height: var(--tap); padding: 8px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.count strong { font-size: 1.15rem; line-height: 1.1; } .count span { font-size: .72rem; color: var(--muted); }
+.team-chip { display: inline-flex; align-items: center; gap: 8px; min-height: var(--tap); padding: 0 12px 0 6px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-weight: 650; font-size: .9rem; }
+[dir="rtl"] .team-chip { padding: 0 6px 0 12px; }
+
+/* FIFA-style player card */
+.fut { position: relative; width: 100%; max-width: 290px; margin-inline: auto; padding: 16px 16px 18px; color: #0a1204; overflow: hidden; text-align: center;
+  border-radius: 24px 24px 54px 54px / 24px 24px 44px 44px; background: linear-gradient(155deg, #ecf9c9 0%, #b9e57b 38%, #7db530 72%, #4f8714 100%);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, .5), inset 0 0 0 2px rgba(255, 255, 255, .45); }
+.fut::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(115deg, rgba(255, 255, 255, .0) 0 14px, rgba(255, 255, 255, .13) 14px 16px); pointer-events: none; }
+.fut > * { position: relative; }
+.fut-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.fut-rating { text-align: start; line-height: 1; } .fut-rating b { display: block; font-size: 2.9rem; font-weight: 900; letter-spacing: -.04em; } .fut-rating span { font-size: .95rem; font-weight: 800; letter-spacing: .08em; }
+.fut-team { width: 44px; height: 44px; border-radius: 50%; background: rgba(10, 18, 4, .12); display: grid; place-items: center; overflow: hidden; font-weight: 800; }
+.fut-team img { width: 100%; height: 100%; object-fit: cover; }
+.fut-photo { width: 150px; height: 150px; margin: -34px auto 0; border-radius: 50%; overflow: hidden; background: rgba(10, 18, 4, .14); border: 3px solid rgba(10, 18, 4, .55); display: grid; place-items: center; font-size: 3rem; font-weight: 900; }
+.fut-photo img { width: 100%; height: 100%; object-fit: cover; }
+.fut-name { margin-top: 8px; font-size: 1.25rem; font-weight: 900; text-transform: uppercase; letter-spacing: .02em; line-height: 1.1; overflow-wrap: anywhere; }
+.fut-line { height: 2px; margin: 10px 20px; background: rgba(10, 18, 4, .35); border-radius: 2px; }
+.fut-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px 4px; font-weight: 800; }
+.fut-stats div { display: flex; flex-direction: column; line-height: 1.15; } .fut-stats b { font-size: 1.15rem; } .fut-stats span { font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; opacity: .8; }
+
+.stat-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); gap: 8px; }
+.stat-tile { padding: 14px 8px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); text-align: center; }
+.stat-tile b { display: block; font-size: 1.7rem; line-height: 1.1; font-variant-numeric: tabular-nums; } .stat-tile span { font-size: .75rem; color: var(--muted); }
+.stat-tile.y b { color: var(--yellow-card); } .stat-tile.r b { color: var(--red-card); } .stat-tile.g b { color: var(--accent); }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 10px 16px; margin: 0; } .kv dt { color: var(--muted); font-size: .9rem; } .kv dd { margin: 0; font-weight: 650; text-align: end; }
+.match-row { display: flex; align-items: center; gap: 10px; min-height: 60px; padding: 8px 12px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); }
+.res { width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; font-weight: 800; font-size: .8rem; flex: none; }
+.res.W { background: var(--accent-soft); color: var(--accent); } .res.D { background: var(--surface-3); color: var(--muted); } .res.L { background: var(--danger-soft); color: var(--danger); }
+mark.hl { background: var(--accent-soft); color: var(--accent); border-radius: 3px; padding: 0 1px; }
+details.card > summary { min-height: var(--tap); display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-weight: 700; list-style: none; }
+details.card > summary::-webkit-details-marker { display: none; }
+@media (min-width: 760px) { .profile-grid { display: grid; grid-template-columns: 320px 1fr; gap: 16px; align-items: start; } }
+.inl { display: inline-block; vertical-align: -4px; margin-inline: 2px; color: var(--accent); }
+.list-row.on, button.list-row:hover { background: var(--accent-soft); border-radius: 12px; }
+.tap-link { display: inline-flex; align-items: center; min-height: var(--tap); font-weight: 700; color: var(--text); }

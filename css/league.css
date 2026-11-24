@@ -1,0 +1,48 @@
+/* ESST league pages: fixtures, standings, leaders, match page, result editor. */
+.md-tabs { margin-bottom: 12px; }
+.day-head { margin: 18px 2px 8px; font-weight: 750; color: var(--muted); font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; }
+.match-card { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; padding: 12px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); min-height: 76px; }
+.match-card .side { display: flex; align-items: center; gap: 10px; min-width: 0; } .match-card .side.away { flex-direction: row-reverse; text-align: end; }
+.match-card .nm { font-weight: 700; min-width: 0; } .match-card .mid { text-align: center; min-width: 64px; }
+.score { font-size: 1.5rem; font-weight: 850; letter-spacing: .02em; font-variant-numeric: tabular-nums; white-space: nowrap; } .kick { font-weight: 800; font-size: 1.1rem; font-variant-numeric: tabular-nums; }
+.match-meta { grid-column: 1 / -1; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; color: var(--muted); font-size: .78rem; }
+.st { font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; padding: 2px 8px; border-radius: 999px; background: var(--surface-3); color: var(--muted); }
+.st.finished { background: var(--accent-soft); color: var(--accent); } .st.cancelled { background: var(--danger-soft); color: var(--danger); } .st.live { background: var(--danger-soft); color: var(--danger); }
+
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--radius); border: 1px solid var(--line); background: var(--surface); overscroll-behavior-x: contain; }
+table.standings { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 560px; font-variant-numeric: tabular-nums; }
+.standings th, .standings td { padding: 6px 8px; text-align: center; white-space: nowrap; border-bottom: 1px solid var(--line); background: var(--surface); height: 52px; }
+.standings th { font-size: .72rem; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .04em; height: 40px; }
+.standings .c-pos { position: sticky; inset-inline-start: 0; z-index: 2; width: 40px; min-width: 40px; font-weight: 800; color: var(--muted); }
+.standings .c-team { position: sticky; inset-inline-start: 40px; z-index: 2; text-align: start; min-width: 150px; max-width: 190px; box-shadow: 8px 0 12px -8px rgba(0, 0, 0, .5); }
+[dir="rtl"] .standings .c-team { box-shadow: -8px 0 12px -8px rgba(0, 0, 0, .5); }
+.standings .c-team a { display: flex; align-items: center; gap: 8px; min-height: var(--tap); font-weight: 700; } .standings .c-team a span { overflow: hidden; text-overflow: ellipsis; }
+.standings .c-pts { font-weight: 850; color: var(--accent); font-size: 1.05rem; } .standings tbody tr:last-child td { border-bottom: 0; }
+.standings tr.top .c-pos { color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); } [dir="rtl"] .standings tr.top .c-pos { box-shadow: inset -3px 0 0 var(--accent); }
+.form { display: inline-flex; gap: 4px; direction: ltr; } .form i { width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; font: 800 .6rem/1 var(--font); color: #0a1204; font-style: normal; }
+.form i.W { background: var(--accent); } .form i.D { background: var(--faint); color: #fff; } .form i.L { background: var(--danger); color: #fff; }
+.rank { width: 32px; text-align: center; font-weight: 850; color: var(--muted); font-size: 1.1rem; } .rank.r1 { color: var(--accent); }
+.big-num { font-size: 1.6rem; font-weight: 850; font-variant-numeric: tabular-nums; color: var(--accent); min-width: 44px; text-align: end; }
+.sub-chips { display: flex; gap: 8px; margin-bottom: 10px; }
+
+.mh { text-align: center; padding: 18px 12px; border-radius: var(--radius-lg); border: 1px solid var(--line); background: radial-gradient(120% 120% at 50% -20%, rgba(159, 211, 86, .2), transparent 60%), linear-gradient(180deg, var(--surface-2), var(--bg-2)); }
+.mh .teams { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: center; margin: 14px 0 8px; }
+.mh .tm { display: flex; flex-direction: column; align-items: center; gap: 8px; font-weight: 800; min-width: 0; } .mh .tm span.n { overflow-wrap: anywhere; }
+.mh .score { font-size: 2.6rem; }
+.timeline { display: flex; flex-direction: column; gap: 6px; }
+.ev { display: grid; grid-template-columns: 1fr 52px 1fr; align-items: center; gap: 6px; min-height: 48px; }
+.ev .min { text-align: center; font-weight: 800; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ev .who { display: flex; align-items: center; gap: 8px; min-width: 0; } .ev .who.away { flex-direction: row-reverse; text-align: end; } .ev .txt { min-width: 0; } .ev .txt a { font-weight: 700; } .ev .txt small { display: block; color: var(--muted); }
+.ev .who.empty { visibility: hidden; }
+.card-ic { width: 14px; height: 20px; border-radius: 3px; display: inline-block; flex: none; } .card-ic.yellow { background: var(--yellow-card); } .card-ic.red { background: var(--red-card); }
+.lineup-list .list-row { min-height: 52px; } .jersey { width: 30px; text-align: center; font-weight: 850; color: var(--muted); }
+.row-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 10px; }
+
+.editor-score { font-size: 2rem; font-weight: 850; text-align: center; font-variant-numeric: tabular-nums; }
+.pick-grid { display: flex; flex-wrap: wrap; gap: 8px; } .pick { min-height: var(--tap); padding: 0 12px; border-radius: 12px; border: 1px solid var(--line-strong); background: var(--surface-2); font-weight: 650; display: inline-flex; align-items: center; gap: 6px; }
+.pick[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.ev-row { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 4px 8px; border-radius: 12px; background: var(--surface-2); }
+.days { display: flex; gap: 6px; flex-wrap: wrap; } .days .pick { flex: 1 1 56px; justify-content: center; }
+.time-row { display: flex; gap: 8px; align-items: center; }
+.warn { background: rgba(245, 197, 66, .12); color: var(--warn); padding: 10px 12px; border-radius: 12px; font-size: .9rem; }
+.mini-table td, .mini-table th { padding: 4px 6px; }
